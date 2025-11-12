@@ -1,0 +1,44 @@
+# MacOS
+.DS_Store
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env files
+.env
+.env.*
+backend/.env
+frontend/.env
+
+# Build outputs
+backend/dist/
+frontend/dist/
+backend/build/
+frontend/build/
+
+# Vite cache
+frontend/.vite/
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+
+# Prisma
+prisma/*.db
+
+# Coverage
+coverage/
+
+# Logs
+logs/
+*.log
+
+# Misc
+*.local
+
+
