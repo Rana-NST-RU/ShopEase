@@ -45,3 +45,6 @@ Set `VITE_API_URL` in `frontend/.env` if backend is not on `http://localhost:400
 - Use `npm run start` on backend; ensure `DATABASE_URL` and `JWT_SECRET` are set.
 
 
+
+
+

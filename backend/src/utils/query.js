@@ -14,7 +14,6 @@ function getSorting(req, allowed = ['price', 'popularity', 'createdAt']) {
 function getProductFilters(req) {
   const where = {};
   if (req.query.q) {
-    // MySQL is case-insensitive by default, but we can use contains for partial match
     where.name = { contains: req.query.q };
   }
   if (req.query.category) where.category = req.query.category;
