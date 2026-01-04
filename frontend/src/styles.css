@@ -2,6 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-body { @apply bg-gray-50 text-gray-900; }
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-gray-50 text-gray-900 font-sans antialiased;
+}
+
+.glass-nav {
+  @apply bg-white/70 backdrop-blur-lg border-b border-white/20;
+}
+
+.btn-primary {
+  @apply px-4 py-2 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all duration-300 shadow-lg shadow-primary-500/30 active:scale-95;
+}
+
+.btn-secondary {
+  @apply px-4 py-2 bg-white text-gray-700 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-sm active:scale-95;
+}
+
+.card-hover {
+  @apply hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100;
+}
 
 
