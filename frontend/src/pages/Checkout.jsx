@@ -226,7 +226,24 @@ export default function Checkout() {
                   className="mt-0.5 w-5 h-5 text-primary-600 border-gray-300 rounded focus:ring-primary-500 cursor-pointer"
                 />
                 <span className="text-sm text-gray-600 group-hover:text-gray-900 transition-colors">
-                  I agree to the <a href="#" className="text-primary-600 hover:text-primary-700 font-medium underline">terms and conditions</a> and <a href="#" className="text-primary-600 hover:text-primary-700 font-medium underline">privacy policy</a>
+                  I agree to the{' '}
+                  <a
+                    href="/terms"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary-600 hover:text-primary-700 font-medium underline"
+                  >
+                    terms and conditions
+                  </a>
+                  {' '}and{' '}
+                  <a
+                    href="/privacy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary-600 hover:text-primary-700 font-medium underline"
+                  >
+                    privacy policy
+                  </a>
                 </span>
               </label>
             </div>

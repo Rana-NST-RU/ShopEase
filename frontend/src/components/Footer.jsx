@@ -49,10 +49,7 @@ export default function Footer() {
                         <h3 className="text-white text-lg font-bold mb-4">Customer Service</h3>
                         <ul className="space-y-2 text-sm">
                             <li><Link to="/about" className="hover:text-primary-400 transition-colors">About Us</Link></li>
-                            <li><Link to="/contact" className="hover:text-primary-400 transition-colors">Contact Us</Link></li>
-                            <li><a href="#" className="hover:text-primary-400 transition-colors">Shipping Information</a></li>
-                            <li><a href="#" className="hover:text-primary-400 transition-colors">Returns & Exchanges</a></li>
-                            <li><a href="#" className="hover:text-primary-400 transition-colors">FAQ</a></li>
+                            <li><Link to="/faq" className="hover:text-primary-400 transition-colors">FAQ</Link></li>
                         </ul>
                     </div>
 
@@ -62,8 +59,6 @@ export default function Footer() {
                         <ul className="space-y-2 text-sm">
                             <li><Link to="/terms" className="hover:text-primary-400 transition-colors">Terms & Conditions</Link></li>
                             <li><Link to="/privacy" className="hover:text-primary-400 transition-colors">Privacy Policy</Link></li>
-                            <li><a href="#" className="hover:text-primary-400 transition-colors">Cookie Policy</a></li>
-                            <li><a href="#" className="hover:text-primary-400 transition-colors">Accessibility</a></li>
                         </ul>
                         <div className="mt-6">
                             <h4 className="text-white text-sm font-semibold mb-2">Contact</h4>
