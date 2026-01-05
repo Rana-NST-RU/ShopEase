@@ -16,6 +16,7 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   orders    Order[]
+  products  Product[] // Products created by this seller
 }
 
 model Product {
@@ -27,9 +28,11 @@ model Product {
   category    String
   stock       Int         @default(0)
   popularity  Int         @default(0)
+  sellerId    Int?        // Nullable for existing products
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
   orderItems  OrderItem[]
+  seller      User?       @relation(fields: [sellerId], references: [id])
 }
 
 model Order {
@@ -56,6 +59,7 @@ model OrderItem {
 
 enum Role {
   USER
+  SELLER
   ADMIN
 }
 

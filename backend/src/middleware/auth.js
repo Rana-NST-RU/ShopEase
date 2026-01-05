@@ -19,6 +19,22 @@ function requireAdmin(req, res, next) {
   return next();
 }
 
-module.exports = { requireAuth, requireAdmin };
+function requireSeller(req, res, next) {
+  if (!req.user) return res.status(401).json({ error: 'Unauthorized' });
+  if (req.user.role !== 'SELLER' && req.user.role !== 'ADMIN') {
+    return res.status(403).json({ error: 'Forbidden: Seller access required' });
+  }
+  return next();
+}
+
+function requireSellerOrAdmin(req, res, next) {
+  if (!req.user) return res.status(401).json({ error: 'Unauthorized' });
+  if (req.user.role !== 'SELLER' && req.user.role !== 'ADMIN') {
+    return res.status(403).json({ error: 'Forbidden: Seller or Admin access required' });
+  }
+  return next();
+}
+
+module.exports = { requireAuth, requireAdmin, requireSeller, requireSellerOrAdmin };
 
 

@@ -9,6 +9,7 @@ const productRoutes = require('./routes/products.routes');
 const orderRoutes = require('./routes/orders.routes');
 const adminRoutes = require('./routes/admin.routes');
 const paymentRoutes = require('./routes/payment.routes');
+const sellerRoutes = require('./routes/seller');
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/payment', paymentRoutes);
+app.use('/api/seller', sellerRoutes);
 
 app.use((err, req, res, next) => {
   // eslint-disable-next-line no-console
