@@ -1,13 +1,22 @@
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { useState } from 'react';
 
 export default function ProductCard({ product }) {
   const { addToCart } = useCart();
+  const [isAdding, setIsAdding] = useState(false);
 
-  function handleAddToCart(e) {
+  async function handleAddToCart(e) {
     e.preventDefault();
     e.stopPropagation();
-    addToCart(product, 1);
+    setIsAdding(true);
+    const success = await addToCart(product, 1);
+    if (success) {
+      // Show success feedback briefly
+      setTimeout(() => setIsAdding(false), 1500);
+    } else {
+      setIsAdding(false);
+    }
   }
 
   return (
@@ -61,16 +70,28 @@ export default function ProductCard({ product }) {
 
         <button
           onClick={handleAddToCart}
-          disabled={product.stock === 0}
+          disabled={product.stock === 0 || isAdding}
           className={`w-full py-3 rounded-xl font-semibold text-sm transition-all duration-300 flex items-center justify-center gap-2
-            ${product.stock > 0
+            ${product.stock > 0 && !isAdding
               ? 'bg-gray-900 text-white hover:bg-primary-600 shadow-md hover:shadow-lg active:scale-95'
-              : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}
+              : isAdding
+                ? 'bg-primary-600 text-white shadow-md'
+                : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}
         >
           {product.stock > 0 ? (
             <>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-              Add to Cart
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                {isAdding ? (
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                ) : (
+                  <>
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </>
+                )}
+              </svg>
+              {isAdding ? 'Added!' : 'Add to Cart'}
             </>
           ) : 'Out of Stock'}
         </button>

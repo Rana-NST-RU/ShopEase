@@ -23,6 +23,7 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-1 bg-white/50 p-1 rounded-2xl border border-white/20 shadow-sm backdrop-blur-md">
           <NavLink to="/products" className={navLink}>Products</NavLink>
+          <NavLink to="/about" className={navLink}>About</NavLink>
           <NavLink to="/cart" className={navLink} style={{ position: 'relative' }}>
             <span className="flex items-center gap-1">
               Cart
